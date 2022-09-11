@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>JavaScript</title>
+    <style>
+        .largo{
+            width:20%
+        }
+        .titulo{
+            font-size: 35px;
+            width:500px
+        }
+
+        .margen{
+            margin-left:50px;
+
+        }
+        .negro{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="my-4 ml-3 lead titulo">INTRODUZCA SUS DATOS</h1>
+    <form>
+        <input id="nombre" class="my-3 ml-5 form-control largo" type="text" placeholder="Nombre">
+        <input id="edad" class="my-3 ml-5 form-control largo" type="text" placeholder="Edad">
+        <button type="reset" id="listo" class="margen btn btn-success">Enviar</button>
+    </form>
+    <h2 class="my-3 ml-3">Resultados</h2>
+    <table class="table largo ml-3" id="tabla">
+        <thead class="thead-inverse negro">
+            <tr>
+                <th>Nombre</th>
+                <th>Edad</th>
+            </tr>
+        </thead>
+    </table>
+    <script>
+        document.getElementById("listo").onclick= function capturar(){
+            function Datos(nombre,edad){
+		        this.nombre=nombre;
+		        this.edad=edad
+        }
+            nombrec=document.getElementById("nombre").value;
+            edadc=document.getElementById("edad").value;
+            per1=new Datos(nombrec,edadc);
+            console.log(per1)
+            push1()
+    }
+    var baseDatos=[]
+    function push1(){
+        baseDatos.push(per1)
+        console.log(baseDatos)
+        document.getElementById("tabla").innerHTML+= "<tbody><tr><th>"+nombrec+"</th><th>"+edadc+"</th></tr></tbody>"
+
+    }
+    localStorage.setItem("base", per1)
+    </script>
+        
+</body>
+</html>

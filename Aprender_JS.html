@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>JavaScript</title>
+	<style>
+		.largo{
+            width:20%
+        }
+        .titulo{
+            font-size: 35px;
+            width:500px
+        }
+
+        .margen{
+            margin-left:50px;
+
+        }
+		.inicio{
+			width: 0%;
+		}
+		.final{
+			width: 100%;
+		}
+		.transicion1{
+			transition: all 1s ease
+		}
+		.margen{
+			margin-left: 10px;
+		}
+		.azul{
+			color: blue;
+		}
+		.rojo{
+			color: red;
+		}
+		.verde{
+			color: green;
+		}
+		.amarillo{
+			color: yellow;
+		}
+		.rosa{
+			color: palevioletred;
+		}
+		.centro{
+			margin-left: 550px;
+			width: 13%;
+			height: 70px;
+			background-color: red;
+			font-size: 40px;
+			color: beige;
+		}
+		.grande{
+			font-size: 20px;
+		}
+		.menu{
+			width: 45px;
+			position: fixed
+		}
+		.desaparece{
+			margin-left: -55px;
+			width: 0%;
+		}
+		#iconos{
+			width: 100%;
+			transition: all 1s ease;
+		}
+	</style>
+</head>
+<body>
+	<h1 align="center" id="titulo">Aprendiendo Javascript</h1>
+	<h3 class="margen" id="condicional">Numero</h3>
+	<p class="margen grande" id="escribe">Que color??</p>
+	<input id="color" class= "formcontrol my-3 margen" placeholder="Ingresa color">
+	<button type="submit" id="boton" class="margen">Color</button>
+	<button id="boton1" class="centro" type="submit">CAMBIATE!!</button><br/>
+	<p class="margen" id="otro"></p>
+	<br/><div class="progress">
+		<div id="barra" class="progress-bar progress-bar-striped transicion1 inicio" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+	  </div><br/>
+	  <button id="boton2" class="margen" type="submit">MUEVETE!!</button>
+	  <br/><input id="calcula" class= "formcontrol my-5 margen" placeholder="Ingresa numero">
+	  <input id="calcula1" class= "formcontrol my-5 margen" placeholder="Ingresa numero">
+	  <button id="boton3" class="margen" type="submit">Muestrame el resultado</button>
+	  <h6>Hola</h6>
+	  <h6>Soy</h6>
+	  <h6>Álvaro</h6>
+	  <h2 id="nume" class="margen">Di un número</h2>
+	  <input type="number" id="input1" class="margen" placeholder="Adivina">
+	  <button type="submit" id="boton5" class="verde margen">Hmmm?</button>
+	  <div id="resultar"></div>
+	  <div class="mt-5 menu text-center">
+			<div id="compartir" class="bg-warning">
+				<i class="fa fa-share-alt" aria-hidden="true"></i>
+			</div>
+			<div id="iconos" class="desaparece">
+				<div class="bg-primary">
+					<a href="#"><i class="fa-brands fa-facebook-f text-white"></i></a>
+				</div>
+				<div class="bg-success">
+					<a href="#"><i class="fa-brands fa-twitter text-white"></i></a>
+				</div>
+				<div class="bg-danger">
+					<a href="#"><i class="fa-brands fa-youtube text-white"></i></a>
+				</div>
+			</div>
+	  </div>
+	  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	
+	<script>
+		document.getElementById("compartir").onclick= function(){
+			document.getElementById("iconos").classList.toggle("desaparece")
+		}
+		var parrafos= document.querySelectorAll("h6")
+		for(let parrafo of parrafos){
+			parrafo.classList.add("rojo")
+			console.log(parrafo)
+		}
+		document.getElementById("titulo").classList.add("bg-danger");
+		
+		document.getElementById("boton2").onclick= function(){
+			document.getElementById("barra").classList.toggle("progress-bar-animated");
+			document.getElementById("barra").classList.toggle("final")
+		}
+		document.getElementById("boton1").onclick= function(){
+			document.getElementById("titulo").classList.toggle("bg-danger");
+			document.getElementById("titulo").innerHTML= "Alla voy";
+		}
+		function listo(num1,num2){
+			return parseFloat(num1) - parseFloat(num2)
+		}
+		document.getElementById("boton3").onclick= function(){
+			var b= document.getElementById("calcula").value;
+			var a= document.getElementById("calcula1").value;
+			document.getElementById("condicional").innerHTML=listo(b,a)
+		}
+		document.getElementById("boton").onclick= function(){
+			var color=document.getElementById("color").value;
+
+			if(color=="azul"){
+				document.getElementById("escribe").classList.add("azul")
+			}
+			else if(color=="rojo"){
+				document.getElementById("escribe").classList.add("rojo")
+			}
+			else if(color=="verde"){
+				document.getElementById("escribe").classList.add("verde")
+			}
+			else if(color=="amarillo"){
+				document.getElementById("escribe").classList.add("amarillo")
+			}
+			else if(color=="rosa"){
+				document.getElementById("escribe").classList.add("rosa")
+			}
+			else{
+				document.getElementById("otro").innerHTML= "Vuelve a intentarlo"
+			}
+		}
+		document.getElementById("boton5").onclick= function(){
+			var intento= document.getElementById("input1").value;
+			console.log(intento);
+			var reps= 0;
+			var maquina= 10
+			var detener = false
+			while(reps<=intento && detener==false){
+			if(intento==maquina){
+				document.getElementById("resultar").innerHTML+= "Ganaste"
+				detener=true
+			}
+			else{
+				document.getElementById("resultar").innerHTML+= "Perdiste x" + reps + "</br>";
+				reps++;
+			}
+
+		}
+	}
+		for( var x=0;x<10;x++){
+			document.write(x)
+		}
+	</script>
+</body>
+</html>
